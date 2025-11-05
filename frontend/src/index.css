@@ -1,11 +1,11 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', 'Segoe UI', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  color: #2d3748;
+  background-color: #f7fafc;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,8 +17,8 @@ html, body, #root {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;  /* prevent horizontal scroll */
-  background: #fff;    /* remove default black bg */
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
 }
 a {
   font-weight: 500;
@@ -37,39 +37,193 @@ body {
   min-height: 90vh;
 }
 
+/* Base responsive container */
+.responsive-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .responsive-container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-container {
+    padding: 0 10px;
+  }
+}
+
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 button:hover {
-  border-color: #646cff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: #2d3748;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  html, body {
+    font-size: 14px;
   }
-  a:hover {
-    color: #747bff;
+  
+  h1 {
+    font-size: 1.8rem !important;
   }
+  
+  h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  h3 {
+    font-size: 1.1rem !important;
+  }
+  
   button {
-    background-color: #f9f9f9;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Container padding */
+  .container {
+    padding: 0 15px !important;
+  }
+  
+  /* Card styles */
+  .card {
+    margin: 10px 0 !important;
+    padding: 15px !important;
+  }
+  
+  /* Form styles */
+  input, textarea, select {
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    box-sizing: border-box;
+  }
+  
+  /* Table responsive */
+  table {
+    font-size: 0.8rem;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+  
+  /* Navigation */
+  .navbar {
+    padding: 10px 15px !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem !important;
+  }
+  
+  /* Grid layouts */
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+  
+  /* Flex layouts */
+  .flex-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  /* Modal */
+  .modal {
+    margin: 10px !important;
+    width: calc(100% - 20px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    font-size: 13px;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .container {
+    padding: 0 10px !important;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
   }
 }
